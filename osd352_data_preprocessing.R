@@ -71,6 +71,12 @@ plot_gene_stats <- function(processed_data) {
          y = "Coefficient of Variation")
 }
 
+# Setting dynamic working directory
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
+
+# Loading the data
+star_data <- read.csv("./data/GLDS-352_rna_seq_STAR_Unnormalized_Counts.csv")
+
 # Processing the data
 processed_data <- preprocess_rnaseq(star_data)
 
@@ -88,5 +94,5 @@ cat("Number of samples:", ncol(star_data)-1, "\n")
 # Saving the processed data
 ###########################
 
-write.csv(processed_data$raw, "processed_counts.csv", row.names = FALSE)
-write.csv(processed_data$log2, "processed_log2_counts.csv", row.names = FALSE)
+write.csv(processed_data$raw, "./data/processed_counts.csv", row.names = FALSE)
+write.csv(processed_data$log2, "./data/processed_log2_counts.csv", row.names = FALSE)

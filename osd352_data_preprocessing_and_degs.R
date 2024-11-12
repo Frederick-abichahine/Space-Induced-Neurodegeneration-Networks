@@ -51,7 +51,7 @@ processed_data <- preprocess_rnaseq(star_data)
 # Prepare condition factor with proper reference level
 condition <- factor(
   ifelse(grepl("F", colnames(star_data)[-1]), "Case", "Control"),
-  levels = c("Control", "Case")  # Explicitly set Control as reference level
+  levels = c("Control", "Case")
 )
 
 # Prepare DESeq2 Dataset
@@ -60,13 +60,13 @@ dds <- DESeqDataSetFromMatrix(
   colData = data.frame(condition = condition),
   design = ~ condition
 )
-rownames(dds) <- star_data[[1]]  # Set gene IDs as rownames
+rownames(dds) <- star_data[[1]]
 
 # Run DESeq2 analysis
 dds <- DESeq(dds)
 
 # Extract results with LFC between Case and Control
-res <- results(dds)  # No need to specify contrast since we set the reference level
+res <- results(dds) 
 
 # Order results by adjusted p-value
 res_ordered <- res[order(res$padj),]
@@ -137,9 +137,9 @@ plot_sample_correlation(processed_data$log2, processed_data$gene_id_col)
 plot_ma(res_ordered)
 dev.off()
 
-###########################
+#####################
 # Save Processed Data
-###########################
+#####################
 
 write.csv(processed_data$raw, 
           "analysis_output/processed_counts.csv", 
@@ -148,15 +148,14 @@ write.csv(processed_data$log2,
           "analysis_output/processed_log2_counts.csv", 
           row.names = FALSE)
 
-###########################
+########################
 # Print Analysis Summary
-###########################
+########################
 
 cat("\nAnalysis Summary:\n")
 cat("Number of genes before filtering:", nrow(star_data), "\n")
 cat("Number of genes after filtering:", nrow(processed_data$raw), "\n")
 cat("Number of filtered genes:", processed_data$filtered_genes, "\n")
 cat("Number of samples:", ncol(star_data) - 1, "\n")
-cat("Number of significant genes (padj < 0.05):",
-    sum(res_ordered$padj < 0.05, na.rm = TRUE), "\n")
+cat("Number of significant genes (padj < 0.05):", sum(res_ordered$padj < 0.05, na.rm = TRUE), "\n")
 cat("\nResults saved in 'analysis_output' directory\n")

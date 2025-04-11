@@ -125,9 +125,13 @@ The gene-disease overlap analysis was performed to identify whether the DEGs fro
 
 For ALS, a curated dataset comprising 63 known disease-associated genes was obtained from the MGI database. This dataset overlapped with the DEGs from the analysis, resulting in a 1% overlap, corresponding to 8 genes (Figure 13). Further examination of the expression direction of these overlapping genes revealed a highly significant upregulation of ERBB4, suggesting its potential involvement in ALS pathogenesis (Figure 13). Similarly, for AD, a curated dataset was used to identify commonalities with the DEGs. This analysis identified 11 overlapping genes (Figure 14), with GRIN2B and PLCB1 notably upregulated and enriched in the Glutamate Receptor Signaling Pathway (GO:0007215) (Figure 14). For SCZ, a similar gene-disease overlap analysis was conducted, which identified 8 common genes between the upregulated DEGs and known SCZ-associated genes (Figure 15). Among these, GRIN2B and GRIN2A were the most upregulated (Figure 15). Both genes are involved in the NMDA-selective glutamate receptor complex (GO:0017146). For PD, a gene-disease overlap analysis revealed 6 common genes between the DEGs and known PD-associated genes (Figure 16). Among these, DJAC6 was identified as the most significantly upregulated gene (Figures 16). To summarize the results of the gene-disease overlap, a gene frequency plot was generated to visualize the overlap of DEGs shared among AD, ALS, PD and SCZ (Figure 17). The analysis revealed no gene that was shared across all four diseases. However, GSK3B was identified as a common gene shared by three of the diseases.
 
-<img width="50%" height="50%" src="figures/figure_13.png"> <img width="50%" height="50%" src="figures/figure_14.png">
+<img width="100%" height="100%" src="figures/figure_13.png"> 
 
-<img width="50%" height="50%" src="figures/figure_15.png"> <img width="50%" height="50%" src="figures/figure_16.png">
+<img width="100%" height="100%" src="figures/figure_14.png">
+
+<img width="100%" height="100%" src="figures/figure_15.png"> 
+
+<img width="100%" height="100%" src="figures/figure_16.png">
 
 <img width="100%" height="100%" src="figures/figure_17.png">
 
